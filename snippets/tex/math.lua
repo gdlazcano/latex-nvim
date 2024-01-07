@@ -76,6 +76,7 @@ return {
 	),
 	-- SUBSCRIPT SHORTCUT
 	-- Places the first alphanumeric character after the trigger into a subscript.
+  -- Previously :
 	s(
 		{ trig = "([%w%)%]%}])_([%w])", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
 		fmta("<>_{<>}", {
@@ -202,6 +203,17 @@ return {
 	s(
 		{ trig = "([^%a])mt", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
 		fmta("<>\\mat{<>}", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+			d(1, get_visual),
+		}),
+		{ condition = tex.in_mathzone }
+	),
+  -- Cancel
+	s(
+		{ trig = "([^%a])cnc", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
+		fmta("<>\\cancel{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]
 			end),

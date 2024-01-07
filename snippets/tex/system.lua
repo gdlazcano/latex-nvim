@@ -29,7 +29,7 @@ return {
       \title{<>}
       \author{<>}
       \date{\today}
-      \usepackage{amsmath}
+      \usepackage{amsmath, amssymb, amsthm, amsfonts}
 
       \begin{document}
         <>
